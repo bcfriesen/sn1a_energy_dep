@@ -37,3 +37,14 @@ mass, M_ej, and the total Ni56 mass, M_Ni56.
 
     - SciPy (http://www.scipy.org/)
         - Scientific library for Python.
+
+
+/------------\
+| PARAMETERS |
+\------------/
+
+    - M_ej:     total mass of ejected material. For a typical SN Ia this should be somewhere between 1.3 M_sun and 1.4 M_sun.
+    - M_Ni56:   total mass of Ni56 produced during the explosion. Typical SNe Ia produce between 0.4 M_sun and 0.6 M_sun.
+    - kappa:    gamma-ray opacity in the ejecta. The default value is 0.025 cm^2/g, as discussed in Stritzinger,+(2006).
+    - q:        Ni56 mixing parameter. The default value is 1/3, as discussed in Stritzinger,+(2006).
+    - v_e:      the e-folding velocity of the ejecta. The default value is 3000 km/s.
