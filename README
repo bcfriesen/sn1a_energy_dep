@@ -1,3 +1,7 @@
+/------------------\
+| CODE DESCRIPTION |
+\------------------/
+
 This is a Python script which calculates the instantaneous energy deposition in
 the ejecta of a type Ia supernova (SN Ia) due to the radioactive decay chain
 Ni56 -> Co56 -> Fe56. There is nothing fancy here, just an implementation of
@@ -14,3 +18,22 @@ relatively old SN Ia.
 There are a few knobs to turn here, all of which are discussed in the
 Stritzinger,+(2006) paper. The only two I ever change are the total ejected
 mass, M_ej, and the total Ni56 mass, M_Ni56.
+
+
+/-----------------------\
+| SOFTWARE REQUIREMENTS |
+\-----------------------/
+
+    - Python 3.x (http://www.python.org/)
+        - Python 3 has been out for something like 3 years now. There is no
+          reason to write new code in Python 2 syntax. Print is a function now,
+          sorry.
+
+    - Astropy (http://www.astropy.org/)
+        - My favorite Python library ever. You'll fall in love with it too.
+
+    - matplotlib (http://matplotlib.org/)
+        - Standard Python plotting library.
+
+    - SciPy (http://www.scipy.org/)
+        - Scientific library for Python.
