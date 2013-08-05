@@ -1,0 +1,16 @@
+This is a Python script which calculates the instantaneous energy deposition in
+the ejecta of a type Ia supernova (SN Ia) due to the radioactive decay chain
+Ni56 -> Co56 -> Fe56. There is nothing fancy here, just an implementation of
+the simple maths found in the following paper:
+
+    Stritzinger et al. 2006, Astronomy & Astrophysics, vol. 450, p. 241
+
+After about 1-2 months of expansion, the optical depth in the ejecta is low
+enough that the bolometric luminosity of a SN Ia at any given time is very
+nearly equal to the instantaneous deposition of energy at that moment.
+Therefore this script can be useful if you wish to know the luminosity of a
+relatively old SN Ia.
+
+There are a few knobs to turn here, all of which are discussed in the
+Stritzinger,+(2006) paper. The only two I ever change are the total ejected
+mass, M_ej, and the total Ni56 mass, M_Ni56.
