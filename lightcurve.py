@@ -92,6 +92,6 @@ ax.set_title('instantaneous energy deposition due to Ni56 and Co56 decay:\n' + t
 plt.show()
 
 figname = 'edep_M_Ni56_%.2f_M_ej_%.2f_kappa_%.3f_q_%.2f_v_e_%.1f' % (M_Ni56.value, M_ej.value, kappa.value, q.value, v_e.value)
-fig.savefig(figname + '.png')
+fig.savefig(figname + '.png', dpi=300)
 
 plt.close()
