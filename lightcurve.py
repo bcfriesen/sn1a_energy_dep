@@ -18,7 +18,7 @@ from astropy import units as u
 import math
 import numpy as np
 from scipy.constants import N_A, golden as golden_ratio
-import matplotlib.pyplot as plt
+from matplotlib import pyplot as plt, gridspec
 from matplotlib.ticker import MultipleLocator, FormatStrFormatter
 
 # Decay constants for Ni56 and Co56, of the form dN/dt = -lambda*N.
@@ -64,8 +64,10 @@ E_dep_array = []
 for time in t:
     E_dep_array.append( E_dep( time, M_Ni56, M_ej, kappa, q, v_e ).to( u.erg / u.second ) )
 
+gs = gridspec.GridSpec(1, 1)
+
 fig = plt.figure(figsize=(11.0, 11.0 / golden_ratio), dpi=128)
-ax = fig.add_subplot(111)
+ax = fig.add_subplot(gs[0, 0])
 
 ax.plot(t, E_dep_array)
 ax.set_yscale('log')
