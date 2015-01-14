@@ -66,7 +66,7 @@ for i, time in enumerate(t):
 
 gs = gridspec.GridSpec(1, 1)
 
-fig = plt.figure(figsize=(11.0, 11.0 / golden_ratio), dpi=128)
+fig = plt.figure(figsize=(11.0, 11.0 / golden_ratio))
 ax = fig.add_subplot(gs[0, 0])
 
 ax.plot(time_array, E_dep_array)
