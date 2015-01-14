@@ -41,12 +41,10 @@ def E_dep( t, \
     N_Ni_0 = M_Ni56.to(u.gram) * N_A / Ni56_atomic_mass     # Convert mass of Ni56 to # of Ni56 atoms.
     M_ej = M_ej.to(u.gram)
     v_e = v_e.to(u.cm/u.second)
-    # This is a bug workaround for astropy.quantities. The sqrt operator strips the units, so we have to put them back by hand.
-    t_0 = math.sqrt(M_ej * kappa * q / (8.0 * math.pi))     # This should have units of cm but sqrt makes it unitless, so in the next line we put them back.
-    t_0 *= u.cm     # Now we have units of cm. In the next line we divide by a velocity, which gives us units of seconds, which is what we want.
+    t_0 = np.sqrt(M_ej * kappa * q / (8.0 * math.pi))
     t_0 /= v_e      # This completes Eq. 4 of Stritzinger,+(2006).
     t_0 = t_0.to(u.day)
-    tau = math.pow(t_0, 2) / math.pow(t, 2)
+    tau = np.power(t_0, 2) / np.power(t, 2)
     return ( (lambda_Ni * N_Ni_0 * math.exp(-lambda_Ni * t) * Q_Ni_gamma) \
             + lambda_Co * N_Ni_0 * (lambda_Ni / (lambda_Ni - lambda_Co)) * ( (math.exp(-lambda_Co * t) - math.exp(-lambda_Ni * t)) \
             * (Q_Co_pos + Q_Co_gamma * (1.0 - math.exp(-tau))) ) )
