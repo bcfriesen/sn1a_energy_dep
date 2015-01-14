@@ -17,11 +17,9 @@
 from astropy import units as u
 import math
 import numpy as np
-from scipy.constants import N_A
+from scipy.constants import N_A, golden as golden_ratio
 import matplotlib.pyplot as plt
 from matplotlib.ticker import MultipleLocator, FormatStrFormatter
-
-golden_ratio = (1.0 + math.sqrt(5.0)) / 2.0
 
 # Decay constants for Ni56 and Co56, of the form dN/dt = -lambda*N.
 lambda_Ni = (   8.8 * u.day )**(-1)
