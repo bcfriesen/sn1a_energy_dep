@@ -59,15 +59,17 @@ q = 1.0/3.0 * u.dimensionless_unscaled
 v_e = 3000.0 * u.km / u.second
 
 E_dep_array = []
-for time in t:
-    E_dep_array.append( E_dep( time, M_Ni56, M_ej, kappa, q, v_e ).to( u.erg / u.second ) )
+time_array = []
+for i, time in enumerate(t):
+    time_array.append ( time.value )
+    E_dep_array.append( E_dep( time, M_Ni56, M_ej, kappa, q, v_e ).to( u.erg / u.second ).value )
 
 gs = gridspec.GridSpec(1, 1)
 
 fig = plt.figure(figsize=(11.0, 11.0 / golden_ratio), dpi=128)
 ax = fig.add_subplot(gs[0, 0])
 
-ax.plot(t, E_dep_array)
+ax.plot(time_array, E_dep_array)
 ax.set_yscale('log')
 
 xmajorLocator = MultipleLocator(100) # Major ticks every 100 days.
@@ -81,11 +83,11 @@ ax.xaxis.set_major_formatter(xmajorFormatter)
 plt.grid(b=True, which='major', color='b', linestyle='-')
 plt.grid(b=True, which='minor', color='r', linestyle='--')
 
-title = 'M_Ni56 = %.2f %s; M_ej = %.2f %s; \n kappa = %.3f %s; q = %.2f; v_e = %.1f %s' % (M_Ni56, M_Ni56.unit, M_ej, M_ej.unit, kappa, kappa.unit, q, v_e, v_e.unit)
+title = 'M_Ni56 = %.2f %s; M_ej = %.2f %s; \n kappa = %.3f %s; q = %.2f; v_e = %.1f %s' % (M_Ni56.value, M_Ni56.unit, M_ej.value, M_ej.unit, kappa.value, kappa.unit, q.value, v_e.value, v_e.unit)
 
 ax.set_xlabel('time (days)')
 ax.set_ylabel('energy deposition (erg/s)')
 ax.set_title('instantaneous energy deposition due to Ni56 and Co56 decay:\n' + title)
 
-figname = 'edep_M_Ni56_%.2f_M_ej_%.2f_kappa_%.3f_q_%.2f_v_e_%.1f' % (M_Ni56, M_ej, kappa, q, v_e)
+figname = 'edep_M_Ni56_%.2f_M_ej_%.2f_kappa_%.3f_q_%.2f_v_e_%.1f' % (M_Ni56.value, M_ej.value, kappa.value, q.value, v_e.value)
 fig.savefig(figname + '.png')
